@@ -1,0 +1,23 @@
+[package]
+name = "cyber-arm"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+embedded-hal = "0.2"
+stm32f4 = { version = "0.15", features = ["stm32f401"] }
+stm32f4xx-hal = { version = "0.16", features = ["stm32f401"] }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = "s"  # или "z" для минимизации размера
+
+[[bin]]
+name = "cyber-arm"
+test = false
+bench = false
